@@ -47,4 +47,4 @@ $ ./quickPush "Commit Message Here"
 
 
 ```
-
+---
