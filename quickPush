@@ -1,0 +1,27 @@
+#! /data/data/com.termux/files/usr/bin/bash
+
+# Title : quickPush
+# Date : 06 Jan 2018
+# Version : 1.0
+# Description : ENTER ALL THE VALUES IN THE
+#               FILE AND MAKE SURE TO PUT IT
+#               THE CORRECT DIRECTORY!
+# Options : Commit Message
+
+#===================
+#PLEASE ENTER THE CORRECT VALUES
+dir="??????"
+yourBranch="??????"
+remote="?????"
+#===================
+cd $dir
+git status
+printf "Staging all changes\n\n"
+git add -A
+git status
+printf "All changes staged\n\n"
+git commit -m "$1"
+git status
+printf "Changes committed\n\nPushing changes to github...\n\n"
+git push $remote $yourBranch
+printf "Done"
