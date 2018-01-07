@@ -1,0 +1,23 @@
+#! /bin/bash
+
+printf "Changing to home directory\n"
+cd
+printf "\nDownloading from cExplr the repository names gitScripts\n\n"
+echo git clone https://github.com/cExplr/gitScripts.git
+git clone https://github.com/cExplr/gitScripts.git
+printf "\nEntering the folder gitScripts\n"
+cd gitScripts
+printf "\n Copying quickpush and placing into parent folder"
+cp quickPush ..
+cd ..
+printf "\nChanging permission to executable\n"
+chmod +x quickPush
+printf "\n Please edit if needed the directory, remote and branch"
+nano quickPush
+printf "Confirm with the editing? (y/n): \n"
+read  editOpt
+while ! [ $editOpt == "y" ]
+do
+nano  quickPush
+done
+printf "\nInstallation completed!\n\n"
