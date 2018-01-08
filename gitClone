@@ -1,0 +1,16 @@
+#! /bin/bash
+while [ "1" == "1" ]
+do
+sep="============================================="
+printf "Git cloner activated...\n$sep\n"
+read -p "Enter you git username: " usr
+read -p "\nEnter the targetted repository: " repos
+printf "\nConfirm \n1)you username : $usr \n Targetted repository : $repos ? (y/n) : "
+read
+if [ $REPLY == "y" ]
+then
+echo -e "Cloning repository...\n git clone https://github.com/$usr/$repos.git "
+git clone https://github.com/$usr/$repos.git
+echo "Cloning completed !"
+fi
+done
