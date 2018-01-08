@@ -14,10 +14,8 @@ printf "\nChanging permission to executable\n"
 chmod +x quickPush
 printf "\n Please edit if needed the directory, remote and branch"
 nano quickPush
-printf "Confirm with the editing? (y/n): \n"
-read  editOpt
-while ! [ $editOpt == "y" ]
-do
-nano  quickPush
-done
-printf "\nInstallation completed!\n\n"
+read -p "Enter a shorter name of the repository for naming : "
+printf "[*] Renaming quickPush to push$REPLY"
+mv quickPush push$REPLY
+echo "Done"
+printf "\n\nInstallation completed!\n\nTYPE cd COMMAND TO VIEW THE INSTALLED FILES\n\n"

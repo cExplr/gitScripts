@@ -1,0 +1,37 @@
+#! /bin/bash
+
+############################################################################
+#
+# TITLE : INSTALLALL
+# DATE : 08 JAN 2018
+# VERSION : 1.1
+# DESCRIPTION : THIS INSTALLS ALL THE GIT SCRIPTS AND CONFIGURE FOR SPECIFIC LOCAL GIT REPOSITORY
+# OPTIONS : NONE FOR SIMPLICITY
+#
+############################################################################
+read -p "Enter the shortened name of repository you want to configure against : " reposName
+printf "Changing to home directory\n"
+cd
+printf "\nDownloading from cExplr the repository names gitScripts\n\n"
+echo git clone https://github.com/cExplr/gitScripts.git
+git clone https://github.com/cExplr/gitScripts.git
+printf "\nEntering the folder gitScripts\n"
+cd gitScripts
+printf "\n Copying 3 files and placing into parent folder"
+cp quickPush ..
+cp quickPull ..
+cp gitClone ..
+cd ..
+printf "\nChanging permission to executable\n"
+chmod +x quickPush
+chmod +x quickPull
+chmod +x gitClone
+printf "\n Please edit if needed the directory, remote and branch"
+nano quickPush
+nano quickPull
+printf "\n\n[*] Renaming quickPush to push$reposName"
+mv quickPush push$reposName
+printf "\nDone\n[Renaming quickPull to pull$reposName"
+mv quickPull pull$reposName
+printf "\ndone\n"
+printf "\nInstallation completed!\nTYPE cd COMMAND TO SEE THE INSTALLED FILE\n\n"
