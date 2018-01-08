@@ -1,0 +1,42 @@
+#! /bin/bash
+
+#===========================================================
+
+# CHANGE THE VARIABLES HERE TO THE DIRECTORY OF THE GIT REPOSITORY
+dir="./??????"
+
+
+#===========================================================
+
+sep="======================================================="
+printf "[*] Git puller activated ...\n"
+cd $dir
+printf "This is the current git status for the repository at $dir ... \n"
+git status
+printf "Are you sure you want to continue to pull? (y/n)"
+read
+
+if [ $REPLY == "y" ]
+then
+
+read -p "Enter the remote of the repository : " remote
+read -p "Enter branch you want to pull from : " branch
+echo
+read -p "Confirm remote : $remote and from branch $branch : $branch ? (y/n): " confirmOpt
+
+if [ $confirmOpt == "y" ]
+then
+printf "\n\n[*] Pulling from targetted repository"
+git pull $remote $branch
+printf "\n[+] Done"
+
+else
+printf "\n\n[-] Nothing is pulled from the repository"
+
+fi
+
+else
+
+printf "\n[-] Nothing is done and pulled!"
+
+fi
