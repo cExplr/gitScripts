@@ -1,0 +1,16 @@
+#! /bin/bash
+
+if [ $(command -v git) ]
+then
+echo "git has been installed ..."
+git --version
+else
+read -p "git is not installed... Do you want to install git ? [y/n] : "
+if [ $REPLY == "y" ]
+then
+echo "Installing git ... "
+sudo apt install git
+echo "Done"
+git --version
+fi
+fi
